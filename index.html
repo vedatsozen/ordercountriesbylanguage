@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<p>Order Countries by language</p>
+
+<select id="inputid">
+    
+    <option value="English">English</option>
+    <option value="Spanish">Spanish</option>
+    <option value="Italian">Italian</option>
+    <option value="French">French</option>
+    <option value="Portuguese">Portuguese</option>
+</select>
+
+<br>
+<button type="button" onclick="orderby()">Order by Language</button>
+<br>
+<button type="button" onclick="allcountries()">Show All Countries</button>
+<div id="container"></div>
+
+</body>
+
+
+<script>
+
+const countries = [
+
+    {ad:"England",language:"English"},
+    {ad:"France",language:"French"},
+    {ad:"Italia",language:"Italian"},
+    {ad:"America",language:"English"},
+    {ad:"Canada",language:"English"},
+    {ad:"Australia",language:"English"},
+    {ad:"Brasil",language:"Portuguese"},
+    {ad:"Mexico",language:"Spanish"},
+    {ad:"Argentina",language:"Spanish"},
+
+
+    /*
+    {ad:"Portugal",language:"Portuguese"},
+    {ad:"Spain",language:"Spanish"},
+    {ad:"Mexico",language:"Spanish"},
+    {ad:"Chile",language:"Spanish"},
+    {ad:"Argentina",language:"Spanish"}
+    */
+
+];
+
+
+for ( let i = 0; countries.length;i++) {
+
+document.getElementById("container").innerHTML += countries[i].ad;
+document.getElementById("container").innerHTML += "<br>" ;
+}
+
+function allcountries() {
+
+    document.getElementById("container").innerHTML = " ";
+
+for ( let i = 0; countries.length;i++) {
+
+document.getElementById("container").innerHTML += countries[i].ad;
+document.getElementById("container").innerHTML += "<br>" ;
+}
+
+
+
+
+}
+
+/* ORDER COUNTRİES BY LANGUAGE */
+
+function orderby() {
+
+    const languagevalue = document.getElementById("inputid").value;
+
+    if  (languagevalue == "") { alert("Please fill in the blanks.")}
+
+    else {
+
+    const orderedcontries = countries.filter( country => country.language == languagevalue )
+
+    document.getElementById("container").innerHTML = " ";
+
+    for ( let i = 0; orderedcontries.length;i++) {
+
+document.getElementById("container").innerHTML += orderedcontries[i].ad;
+document.getElementById("container").innerHTML += "<br>" ;
+document.getElementById("container").innerHTML += "<br>" ;
+
+
+}
+
+    }
+
+}
+
+</script>
+
+
+
+</body>
+</html>
